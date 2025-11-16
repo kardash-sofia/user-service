@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 export enum UserRole {
   FREELANCER = 'freelancer',
@@ -27,6 +33,15 @@ export class User {
   })
   role: UserRole;
 
+  @Column()
+  rating: number;
+
+  @Column()
+  balance: number;
+
   @CreateDateColumn()
   createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
 }
